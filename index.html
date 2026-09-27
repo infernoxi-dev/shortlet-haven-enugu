@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shortlet Haven Enugu | Premium Luxury Apartments</title>
+  
+  <!-- Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Ambient Light Background Gradients -->
+  <div class="light-field field-gold"></div>
+  <div class="light-field field-slate"></div>
+
+  <!-- Sticky Architectural Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="#" class="brand">
+        <div class="brand-mark">SH</div>
+        <div>
+          <span class="brand-title">SHORTLET HAVEN</span>
+          <span class="brand-sub">ENUGU LUXURY APARTMENTS</span>
+        </div>
+      </a>
+      
+      <div class="nav-links">
+        <a href="#about">The Haven</a>
+        <a href="#suites">Apartments</a>
+        <a href="#amenities">Services</a>
+        <a href="#contact">Contact</a>
+      </div>
+
+      <a href="#reserve" class="nav-cta">Reserve Stay</a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="hero">
+    <div class="hero-container">
+      <div class="hero-content">
+        <div class="luxury-badge">
+          <span class="pulse-dot"></span>
+          BESPOKE SHORTLET SUITES
+        </div>
+        <h1 class="hero-title">Bespoke Luxury Apartments in Enugu</h1>
+        <p class="hero-subtitle">
+          Experience premium, fully-serviced private apartments for short and extended stays in the heart of Enugu—crafted with high-end architecture, total privacy, and 24/7 power security.
+        </p>
+        <div class="hero-actions">
+          <a href="https://wa.me/2348000000000?text=Hello%20Shortlet%20Haven%20Enugu,%20I%20have%20a%20quick%20question%20about%20apartment%20availability." target="_blank" class="btn-primary">
+            Chat with Front Desk &rarr;
+          </a>
+          <a href="#suites" class="btn-ghost">Explore Apartments &gt;</a>
+        </div>
+      </div>
+
+      <div class="hero-media">
+        <div class="image-card-wrapper">
+          <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1000&q=80" alt="Shortlet Haven Enugu Interior">
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- About Section (#about) -->
+  <section id="about" class="about-section" style="padding: 90px 0; border-top: 1px solid var(--border-light);">
+    <div class="container">
+      <div class="section-header" style="max-width: 700px; margin-bottom: 32px;">
+        <span class="section-kicker">EXCLUSIVITY & REFINEMENT</span>
+        <h2>The Haven Experience</h2>
+        <p style="margin-top: 16px; color: var(--text-muted);">
+          Shortlet Haven Enugu offers executive privacy and modern luxury for high-net-worth guests, corporate leaders, and visiting diaspora. Every suite is soundproofed, fully climate-controlled, and continuously powered around the clock.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Apartments Showcase Section (#suites) -->
+  <section id="suites" class="suites-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-kicker">CURATED ACCOMMODATIONS</span>
+        <h2>Private Residences & Apartments</h2>
+      </div>
+
+      <div class="suites-grid">
+        
+        <!-- Unit 1 -->
+        <div class="suite-card">
+          <div class="suite-media">
+            <img src="https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&w=800&q=80" alt="1-Bedroom Executive Haven">
+            <span class="price-chip">₦35,000 <sub>/ night</sub></span>
+          </div>
+          <div class="suite-body">
+            <h3>1-Bedroom Executive Haven</h3>
+            <p>Ideal for corporate travelers, remote executives, or couples looking for a private, stylish sanctuary with high-speed fiber internet and a dedicated workstation.</p>
+            <ul class="amenity-pills">
+              <li>High-Speed Wi-Fi</li>
+              <li>55" Smart TV</li>
+              <li>24/7 Power Supply</li>
+              <li>En-Suite Workstation</li>
+            </ul>
+            <button class="suite-select-btn" onclick="selectSuite('1-Bedroom Executive Haven')">Select Apartment</button>
+          </div>
+        </div>
+
+        <!-- Unit 2 (Featured) -->
+        <div class="suite-card featured-card">
+          <span class="featured-badge">MOST REQUESTED</span>
+          <div class="suite-media">
+            <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80" alt="2-Bedroom Luxury Apartment">
+            <span class="price-chip">₦60,000 <sub>/ night</sub></span>
+          </div>
+          <div class="suite-body">
+            <h3>2-Bedroom Luxury Apartment</h3>
+            <p>Designed for group visits, executive stays, or families requiring spacious open-plan lounge areas, fully-fitted kitchens, and ensuite master bedrooms.</p>
+            <ul class="amenity-pills">
+              <li>Fully Equipped Kitchen</li>
+              <li>Private Balcony</li>
+              <li>Smart Home Sound</li>
+              <li>Housekeeping Service</li>
+            </ul>
+            <button class="suite-select-btn primary-btn" onclick="selectSuite('2-Bedroom Luxury Apartment')">Select Apartment</button>
+          </div>
+        </div>
+
+        <!-- Unit 3 -->
+        <div class="suite-card">
+          <div class="suite-media">
+            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80" alt="Penthouse Haven Suite">
+            <span class="price-chip">₦100,000 <sub>/ night</sub></span>
+          </div>
+          <div class="suite-body">
+            <h3>Penthouse Haven Suite</h3>
+            <p>The peak of Enugu shortlet luxury. Expansive wrap-around sky balcony, master Jacuzzi, private dining bar, and premium security infrastructure.</p>
+            <ul class="amenity-pills">
+              <li>Private Roof Terrace</li>
+              <li>Ensuite Jacuzzi</li>
+              <li>Personalized Concierge</li>
+              <li>Gated Security Patrol</li>
+            </ul>
+            <button class="suite-select-btn" onclick="selectSuite('Penthouse Haven Suite')">Select Apartment</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Amenities / Services Section (#amenities) -->
+  <section id="amenities" class="amenities-section" style="padding: 90px 0; background: var(--bg-surface); border-top: 1px solid var(--border-light); border-bottom: 1px solid var(--border-light);">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-kicker">UNCOMPROMISING HOSPITALITY</span>
+        <h2>Services & Amenities</h2>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 24px;">
+        <div style="padding: 24px; background: var(--bg-card); border: 1px solid var(--border-light); border-radius: var(--radius-sm);">
+          <h4 style="color: var(--text-main); font-size: 1.1rem; margin-bottom: 8px;">⚡ Uninterrupted Power</h4>
+          <p style="font-size: 0.88rem;">Heavy-duty solar, inverter systems, and standby industrial generators ensure zero blackouts.</p>
+        </div>
+        <div style="padding: 24px; background: var(--bg-card); border: 1px solid var(--border-light); border-radius: var(--radius-sm);">
+          <h4 style="color: var(--text-main); font-size: 1.1rem; margin-bottom: 8px;">🛡️ Elite Security</h4>
+          <p style="font-size: 0.88rem;">24/7 armed security patrol, CCTV coverage, and smart keycard door access.</p>
+        </div>
+        <div style="padding: 24px; background: var(--bg-card); border: 1px solid var(--border-light); border-radius: var(--radius-sm);">
+          <h4 style="color: var(--text-main); font-size: 1.1rem; margin-bottom: 8px;"> Starlink High-Speed Wi-Fi</h4>
+          <p style="font-size: 0.88rem;">Dedicated low-latency fiber connectivity across all units for seamless work or streaming.</p>
+        </div>
+        <div style="padding: 24px; background: var(--bg-card); border: 1px solid var(--border-light); border-radius: var(--radius-sm);">
+          <h4 style="color: var(--text-main); font-size: 1.1rem; margin-bottom: 8px;">🧹 Daily Housekeeping</h4>
+          <p style="font-size: 0.88rem;">Professional daily room cleaning, fresh linen rotation, and laundry services upon request.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reservation Section (#reserve) -->
+  <section id="reserve" class="reservation-section">
+    <div class="container">
+      <div class="reservation-card">
+        
+        <div class="reservation-info">
+          <span class="section-kicker">DIRECT CONCIERGE BOOKING</span>
+          <h2>Instant Direct Reservation</h2>
+          <p>Book directly with our front desk concierge team to lock in priority check-in times and bypass third-party booking surcharges.</p>
+        </div>
+
+        <form id="bookingForm" class="reservation-form">
+          <div class="input-field">
+            <label for="guestName">Full Guest Name</label>
+            <input type="text" id="guestName" placeholder="e.g. Dr. Chidi Okonkwo" required>
+          </div>
+
+          <div class="input-grid">
+            <div class="input-field">
+              <label for="suiteSelect">Select Apartment</label>
+              <select id="suiteSelect" required>
+                <option value="1-Bedroom Executive Haven" data-price="35000">1-Bedroom Executive Haven (₦35k/n)</option>
+                <option value="2-Bedroom Luxury Apartment" data-price="60000" selected>2-Bedroom Luxury Apartment (₦60k/n)</option>
+                <option value="Penthouse Haven Suite" data-price="100000">Penthouse Haven Suite (₦100k/n)</option>
+              </select>
+            </div>
+
+            <div class="input-field">
+              <label for="guestCount">Guests</label>
+              <select id="guestCount">
+                <option value="1 Guest">1 Guest</option>
+                <option value="2 Guests" selected>2 Guests</option>
+                <option value="3-4 Guests">3-4 Guests</option>
+                <option value="5+ Guests">5+ Guests</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="input-grid">
+            <div class="input-field">
+              <label for="checkIn">Check-In Date</label>
+              <input type="date" id="checkIn" required>
+            </div>
+            <div class="input-field">
+              <label for="checkOut">Check-Out Date</label>
+              <input type="date" id="checkOut" required>
+            </div>
+          </div>
+
+          <!-- Price Calculation Slate -->
+          <div class="price-slate">
+            <div class="slate-row">
+              <span>Duration:</span>
+              <span id="displayNights" class="slate-val">1 Night</span>
+            </div>
+            <div class="slate-row highlight">
+              <span>Estimated Stay Total:</span>
+              <span id="displayTotal" class="slate-val-gold">₦60,000</span>
+            </div>
+          </div>
+
+          <button type="submit" class="submit-btn">
+            <span>Confirm & Request via WhatsApp</span> &rarr;
+          </button>
+        </form>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact / Location Section (#contact) -->
+<section id="contact" style="padding: 70px 0; border-top: 1px solid var(--border-light);">
+  <div class="container">
+    <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 24px;">
+      <div>
+        <span class="section-kicker">GET IN TOUCH</span>
+        <h3 style="font-family: var(--font-serif); font-size: 2rem; color: var(--text-main); font-weight: 400;">Shortlet Haven Enugu</h3>
+        <p style="color: var(--text-muted); margin-top: 6px;">Independence Layout / GRA, Enugu State, Nigeria</p>
+      </div>
+      <div>
+        <a href="https://wa.me/2348000000000?text=Hello%20Shortlet%20Haven,%20I%20would%20like%20to%20inquire%20about%20a%20booking." target="_blank" class="btn-ghost">
+          Direct Desk WhatsApp &rarr;
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+  <footer class="footer">
+    <p>&copy; 2026 Shortlet Haven Enugu. All Rights Reserved. Architectural Direct Hospitality Portal.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
