@@ -1,102 +1,67 @@
-// --- SHORTLET HAVEN ENUGU - MAIN JAVASCRIPT ---
+// Rate per night constant
+const NIGHTLY_RATE = 30000;
 
-// Dynamic Pricing & Date Calculation Logic
-const apartmentSelect = document.getElementById('apartment');
-const guestsSelect = document.getElementById('guests');
-const checkInInput = document.getElementById('checkin');
-const checkOutInput = document.getElementById('checkout');
-const durationDisplay = document.getElementById('duration-display');
-const totalDisplay = document.getElementById('total-display');
-const bookingForm = document.getElementById('bookingForm');
+// Set default dates when the DOM loads (Sep 28 - Sep 29)
+document.addEventListener("DOMContentLoaded", () => {
+    const today = new Date('2026-09-28');
+    const tomorrow = new Date('2026-09-29');
 
-// Base rates per night (in NGN)
-const prices = {
-  '1-bedroom': 40000,
-  '2-bedroom': 60000,
-  'penthouse': 120000
-};
+    document.getElementById('checkIn').value = today.toISOString().split('T')[0];
+    document.getElementById('checkOut').value = tomorrow.toISOString().split('T')[0];
 
-function calculateTotal() {
-  if (!checkInInput || !checkOutInput) return;
-
-  const checkInDate = new Date(checkInInput.value);
-  const checkOutDate = new Date(checkOutInput.value);
-
-  if (checkInDate && checkOutDate && checkOutDate > checkInDate) {
-    const timeDiff = checkOutDate.getTime() - checkInDate.getTime();
-    const nights = Math.ceil(timeDiff / (1000 * 3600 * 24));
-    
-    const selectedApartment = apartmentSelect ? apartmentSelect.value : '2-bedroom';
-    const ratePerNight = prices[selectedApartment] || 60000;
-    const grandTotal = nights * ratePerNight;
-
-    if (durationDisplay) durationDisplay.textContent = `${nights} ${nights === 1 ? 'Night' : 'Nights'}`;
-    if (totalDisplay) totalDisplay.textContent = `₦${grandTotal.toLocaleString()}`;
-  } else {
-    if (durationDisplay) durationDisplay.textContent = '1 Night';
-    if (totalDisplay) totalDisplay.textContent = '₦60,000';
-  }
-}
-
-// Event listeners for reservation inputs
-if (apartmentSelect) apartmentSelect.addEventListener('change', calculateTotal);
-if (checkInInput) checkInInput.addEventListener('change', calculateTotal);
-if (checkOutInput) checkOutInput.addEventListener('change', calculateTotal);
-
-// WhatsApp Direct Booking Dispatcher
-if (bookingForm) {
-  bookingForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    
-    const apartmentText = apartmentSelect ? apartmentSelect.options[apartmentSelect.selectedIndex].text : '2-Bedroom Luxury Apartment';
-    const guests = guestsSelect ? guestsSelect.value : '2';
-    const checkIn = checkInInput ? checkInInput.value : 'Not set';
-    const checkOut = checkOutInput ? checkOutInput.value : 'Not set';
-    const totalCost = totalDisplay ? totalDisplay.textContent : '₦60,000';
-
-    const whatsappNumber = '2348000000000'; // Replace with your host phone number
-    const message = `Hello Shortlet Haven! I would like to make a reservation:\n\n` +
-                    `*Apartment:* ${apartmentText}\n` +
-                    `*Guests:* ${guests}\n` +
-                    `*Check-in:* ${checkIn}\n` +
-                    `*Check-out:* ${checkOut}\n` +
-                    `*Estimated Total:* ${totalCost}\n\n` +
-                    `Please confirm availability!`;
-
-    const encodedMessage = encodeURIComponent(message);
-    window.open(`https://wa.me/${whatsappNumber}?text=${encodedMessage}`, '_blank');
-  });
-}
-
-// Suite Selection Buttons Helper
-function selectSuite(apartmentType) {
-  if (apartmentSelect) {
-    apartmentSelect.value = apartmentType;
+    // Initial calculation on page load
     calculateTotal();
-  }
-  const reserveSection = document.getElementById('reserve');
-  if (reserveSection) {
-    reserveSection.scrollIntoView({ behavior: 'smooth' });
-  }
+});
+
+// Toggle Mobile Navigation Menu
+function toggleMenu() {
+    document.getElementById('navLinks').classList.toggle('active');
 }
 
+// Dynamically Calculate Nights & Total Price
+function calculateTotal() {
+    const checkInVal = document.getElementById('checkIn').value;
+    const checkOutVal = document.getElementById('checkOut').value;
 
-// --- MOBILE NAVBAR TOGGLE, CLOSE & BACKDROP LOGIC ---
-const navToggle = document.getElementById('navToggle');
-const navLinks = document.getElementById('navLinks');
-const menuBackdrop = document.getElementById('menuBackdrop');
+    if (checkInVal && checkOutVal) {
+        const date1 = new Date(checkInVal);
+        const date2 = new Date(checkOutVal);
+        
+        const timeDiff = date2.getTime() - date1.getTime();
+        let nights = Math.ceil(timeDiff / (1000 * 3600 * 24));
 
-if (navToggle) {
-  navToggle.addEventListener('click', () => {
-    navToggle.classList.toggle('active');
-    navLinks.classList.toggle('active');
-    if (menuBackdrop) menuBackdrop.classList.toggle('active');
-  });
+        if (nights <= 0) {
+            nights = 1;
+        }
+
+        const total = nights * NIGHTLY_RATE;
+
+        document.getElementById('nightCount').innerText = `${nights} Night${nights > 1 ? 's' : ''}`;
+        document.getElementById('totalPrice').innerText = `₦${total.toLocaleString()}`;
+    }
 }
 
-function closeMenu() {
-  if (navLinks) navLinks.classList.remove('active');
-  if (navToggle) navToggle.classList.remove('active');
-  if (menuBackdrop) menuBackdrop.classList.remove('active');
+// Format and Dispatch Reservation Data directly to WhatsApp
+function sendWhatsApp(event) {
+    event.preventDefault();
+    
+    const phone = "2347031080961"; // Direct hotel desk contact[span_47](start_span)[span_47](end_span)
+    const name = document.getElementById('fullName').value;
+    const checkIn = document.getElementById('checkIn').value;
+    const checkOut = document.getElementById('checkOut').value;
+    const guests = document.getElementById('guests').value;
+    const nights = document.getElementById('nightCount').innerText;
+    const total = document.getElementById('totalPrice').innerText;
+
+    const text = `Hello Shortlet Haven! I would like to make a reservation booking:%0A%0A` +
+                 `*Name:* ${name}%0A` +
+                 `*Check-in:* ${checkIn}%0A` +
+                 `*Check-out:* ${checkOut}%0A` +
+                 `*Guests:* ${guests}%0A` +
+                 `*Duration:* ${nights}%0A` +
+                 `*Total Amount:* ${total}%0A%0A` +
+                 `Please confirm availability for my stay.`;
+
+    window.open(`https://wa.me/${phone}?text=${text}`, '_blank');
 }
 
