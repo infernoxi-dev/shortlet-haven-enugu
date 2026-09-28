@@ -607,3 +607,22 @@ html, body {
   }
 }
 
+/* --- FIX HORIZONTAL SWIPE / OVERFLOW --- */
+body, html {
+  max-width: 100vw !important;
+  overflow-x: hidden !important;
+}
+
+.light-field {
+  display: none !important;
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    visibility: hidden;
+  }
+  .nav-links.active {
+    visibility: visible;
+  }
+}
+
