@@ -105,4 +105,18 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+// Mobile Navbar Toggle Logic
+const navToggle = document.getElementById('navToggle');
+const navLinks = document.getElementById('navLinks');
 
+if (navToggle) {
+  navToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+  });
+}
+
+function closeMenu() {
+  if (navLinks) {
+    navLinks.classList.remove('active');
+  }
+}
