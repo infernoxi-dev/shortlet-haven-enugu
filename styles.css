@@ -690,3 +690,8 @@ body, html {
   transform: translateY(-8px) rotate(-45deg);
 }
 
+/* Ensure close 'X' button stays visible above the slide-out menu */
+.nav-toggle{
+  position: relative !important;
+  z-index: 1002 !important;
+}
