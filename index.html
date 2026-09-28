@@ -19,27 +19,35 @@
   <div class="light-field field-slate"></div>
 
   <!-- Sticky Architectural Navigation -->
-  <nav class="navbar">
-    <div class="nav-container">
-      <a href="#" class="brand">
-        <div class="brand-mark">SH</div>
-        <div>
-          <span class="brand-title">SHORTLET HAVEN</span>
-          <span class="brand-sub">ENUGU LUXURY APARTMENTS</span>
-        </div>
-      </a>
-      
-      <div class="nav-links">
-        <a href="#about">The Haven</a>
-        <a href="#suites">Apartments</a>
-        <a href="#amenities">Services</a>
-        <a href="#contact">Contact</a>
+<nav class="navbar">
+  <div class="nav-container">
+    <a href="#" class="brand">
+      <div class="brand-mark">SH</div>
+      <div>
+        <span class="brand-title">SHORTLET HAVEN</span>
+        <span class="brand-sub">ENUGU LUXURY APARTMENTS</span>
       </div>
+    </a>
+    
+    <!-- Mobile Menu Hamburger Button -->
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle Navigation">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
 
-      <a href="#reserve" class="nav-cta">Reserve Stay</a>
+    <div class="nav-links" id="navLinks">
+      <a href="#about" onclick="closeMenu()">The Haven</a>
+      <a href="#suites" onclick="closeMenu()">Apartments</a>
+      <a href="#amenities" onclick="closeMenu()">Services</a>
+      <a href="#contact" onclick="closeMenu()">Contact</a>
+      <a href="#reserve" class="nav-cta mobile-cta" onclick="closeMenu()">Reserve Stay</a>
     </div>
-  </nav>
 
+    <a href="#reserve" class="nav-cta desktop-cta">Reserve Stay</a>
+  </div>
+</nav>
+  
   <!-- Hero Section -->
   <header class="hero">
     <div class="hero-container">
