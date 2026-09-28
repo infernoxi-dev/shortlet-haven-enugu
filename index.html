@@ -1,191 +1,160 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shortlet Haven - Luxury Shortlet Apartments in Enugu</title>
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
-    <!-- External CSS stylesheet -->
-    <link rel="stylesheet" href="styles.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Shortlet Haven | Stay beside the golf course, Enugu</title>
+<meta name="description" content="Shortlet Haven at Golf Estate, GRA, Enugu. Free breakfast, parking and Wi-Fi from ₦30,000 a night.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Instrument+Sans:wght@400..700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-    <!-- Navigation -->
-    <nav>
-        <a href="#" class="logo">Shortlet<span>Haven</span></a>
-        <ul class="nav-links" id="navLinks">
-            <li><a href="#overview">Overview</a></li>
-            <li><a href="#amenities">Amenities</a></li>
-            <li><a href="#pricing">Rates & Booking</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-        <a href="#pricing" class="btn-nav">Reserve Now</a>
-        <div class="hamburger" id="hamburger" onclick="toggleMenu()">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
+<header id="top">
+  <div class="wrap bar">
+    <a class="logo" href="#top">Shortlet <b>Haven</b></a>
+    <nav id="menu" aria-label="Main">
+      <ul>
+        <li><a href="#about">The stay</a></li>
+        <li><a href="#amenities">Amenities</a></li>
+        <li><a href="#rate">Rate</a></li>
+        <li><a href="#location">Find us</a></li>
+        <li><a class="cta" href="#contact">Book a stay</a></li>
+      </ul>
     </nav>
+    <button class="burger" id="burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
 
-    <!-- Hero Section -->
-    <header class="hero" id="overview">
-        <div class="hero-badge">⛳ Near Golf Course Location</div>
-        <h1>Luxury Living in the Heart of GRA, Enugu</h1>
-        <p>Experience world-class hospitality, serene environments, and premium full-service shortlet apartments designed for your comfort[span_0](start_span)[span_0](end_span)[span_1](start_span)[span_1](end_span).</p>
-        
-        <div class="location-banner">
-            <div class="location-item">
-                 Golf Estate, 199 Sir Mike Omeje Ave, GRA, Enugu 400102[span_2](start_span)[span_2](end_span)
-            </div>
-            <div class="location-item">
-                 0703 108 0961[span_3](start_span)[span_3](end_span)
-            </div>
-            <div class="location-item rating-tag">
-                ★ 4.1 (27 Reviews)[span_4](start_span)[span_4](end_span)
-            </div>
-        </div>
-    </header>
+<main>
+<div class="hero">
+  <div class="wrap">
+    <div>
+      <h1>Shortlet<i>Haven</i></h1>
+      <p class="lede">A calm stay on the edge of the golf course in Enugu. Breakfast, parking and Wi-Fi are already included.</p>
+      <div class="rate-line">
+        <a class="btn" href="#contact">Book a stay</a>
+        <span><b>₦30,000</b>a night</span>
+      </div>
+    </div>
+    <div class="arch-wrap">
+      <div class="arch">
+        <svg viewBox="0 0 300 410" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <g class="sun"><circle cx="205" cy="120" r="46" fill="#FFD9A0" opacity=".95"/></g>
+          <path d="M0 165 Q90 130 170 160 T300 150 V410 H0Z" fill="#5DB08F"/>
+          <path d="M0 215 Q110 175 210 210 T300 200 V410 H0Z" fill="#3A8F72"/>
+          <g fill="none" stroke="#FFFFFF" stroke-opacity=".7">
+            <ellipse cx="110" cy="300" rx="120" ry="44"/><ellipse cx="110" cy="300" rx="88" ry="30"/><ellipse cx="110" cy="300" rx="56" ry="18"/>
+          </g>
+          <path d="M110 300 V228" stroke="#EEF1EF" stroke-width="2"/><path d="M110 228 l30 9 -30 9Z" fill="#E5484D"/><circle cx="110" cy="300" r="4" fill="#0B2622"/>
+          <path d="M0 340 Q100 300 300 350 V410 H0Z" fill="#1F6E58"/>
+        </svg>
+      </div>
+      <div class="score"><b>4.1</b><span>from 27 guest reviews</span></div>
+    </div>
+  </div>
+  <div class="wrap" style="display:block">
+    <form class="book" id="bookForm">
+      <label>Check in<input type="date" id="in" required></label>
+      <label>Check out<input type="date" id="out" required></label>
+      <label>Guests<select id="guests"><option>1</option><option selected>2</option><option>3</option><option>4</option></select></label>
+      <button class="btn" type="submit">Request this stay</button>
+    </form>
+  </div>
+</div>
 
-    <!-- Amenities Section -->
-    <section class="container" id="amenities">
-        <h2 class="section-title">Property Amenities</h2>
-        <p class="section-subtitle">Everything you need for an effortless, high-end stay[span_5](start_span)[span_5](end_span)[span_6](start_span)[span_6](end_span).</p>
+<section class="intro" id="about">
+  <div class="wrap">
+    <p class="big">Inside Golf Estate, beside the course, a quiet place to sleep, eat well and <em>arrive at any hour</em>.</p>
+    <div class="facts">
+      <div><span>Address</span><b>199 Sir Mike Omeje Ave, GRA</b></div>
+      <div><span>Front desk</span><b>Open 24 hours</b></div>
+      <div><span>House rule</span><b>Smoke-free property</b></div>
+      <div><span>Call us</span><b>0703 108 0961</b></div>
+    </div>
+  </div>
+</section>
 
-        <div class="amenities-grid">
-            <div class="amenity-card">
-                <h3>Popular Amenities</h3>
-                <ul class="amenity-list">
-                    <li><span class="check-icon">✓</span> Parking <span class="badge">Free</span>[span_7](start_span)[span_7](end_span)[span_8](start_span)[span_8](end_span)</li>
-                    <li><span class="check-icon">✓</span> Breakfast <span class="badge">Free</span>[span_9](start_span)[span_9](end_span)[span_10](start_span)[span_10](end_span)</li>
-                    <li><span class="check-icon">✓</span> Wi-Fi <span class="badge">Free</span>[span_11](start_span)[span_11](end_span)</li>
-                    <li><span class="check-icon">✓</span> On-site Restaurant[span_12](start_span)[span_12](end_span)[span_13](start_span)[span_13](end_span)</li>
-                </ul>
-            </div>
+<section class="amen" id="amenities">
+  <div class="wrap">
+    <div>
+      <h2>Everything in reach</h2>
+      <p>The basics are covered, so you can spend the trip on what you came for.</p>
+    </div>
+    <div>
+      <ul class="rows">
+        <li><strong>Breakfast</strong><span class="free">Free</span></li>
+        <li><strong>Parking</strong><span class="free">Free</span></li>
+        <li><strong>Wi-Fi</strong><span class="free">Free</span></li>
+        <li><strong>Restaurant</strong><span>On site</span></li>
+        <li><strong>Bar</strong><span>On site</span></li>
+        <li><strong>Room service</strong><span>To your door</span></li>
+        <li><strong>Front desk</strong><span>24 hours</span></li>
+        <li><strong>Laundry</strong><span>Full service</span></li>
+      </ul>
+      <p class="not">There is no spa or hot tub on site.</p>
+    </div>
+  </div>
+</section>
 
-            <div class="amenity-card">
-                <h3>Food & Drink</h3>
-                <ul class="amenity-list">
-                    <li><span class="check-icon">✓</span> Restaurant & Bar[span_14](start_span)[span_14](end_span)[span_15](start_span)[span_15](end_span)</li>
-                    <li><span class="check-icon">✓</span> Room Service[span_16](start_span)[span_16](end_span)[span_17](start_span)[span_17](end_span)</li>
-                    <li><span class="check-icon">✓</span> Complimentary Breakfast[span_18](start_span)[span_18](end_span)[span_19](start_span)[span_19](end_span)</li>
-                </ul>
-            </div>
+<section class="card-sec" id="rate">
+  <div class="wrap">
+    <div>
+      <h2>One rate, no extras</h2>
+      <p>What you see is the nightly price for two guests. Ask us about longer stays or other dates.</p>
+      <a class="btn" href="#contact">Check availability</a>
+    </div>
+    <div class="sc">
+      <h3>Scorecard for one night</h3>
+      <dl>
+        <div><dt>Room, 2 guests</dt><dd>₦30,000</dd></div>
+        <div><dt>Breakfast</dt><dd class="in">Included</dd></div>
+        <div><dt>Parking</dt><dd class="in">Included</dd></div>
+        <div><dt>Wi-Fi</dt><dd class="in">Included</dd></div>
+        <div class="total"><dt>Total</dt><dd>₦30,000</dd></div>
+      </dl>
+      <small>Golf Estate, GRA, Enugu</small>
+    </div>
+  </div>
+</section>
 
-            <div class="amenity-card">
-                <h3>Services & Policy</h3>
-                <ul class="amenity-list">
-                    <li><span class="check-icon">✓</span> 24-Hour Front Desk[span_20](start_span)[span_20](end_span)[span_21](start_span)[span_21](end_span)</li>
-                    <li><span class="check-icon">✓</span> Full-service Laundry[span_22](start_span)[span_22](end_span)[span_23](start_span)[span_23](end_span)</li>
-                    <li><span class="check-icon">✓</span> Smoke-free Property[span_24](start_span)[span_24](end_span)[span_25](start_span)[span_25](end_span)</li>
-                </ul>
-            </div>
+<section class="loc" id="location">
+  <div class="wrap">
+    <div class="map" role="img" aria-label="Stylised map showing Shortlet Haven beside the golf course">
+      <svg viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <rect width="400" height="400" fill="#E6F4EE"/>
+        <path d="M-10 260 Q120 170 250 230 T420 150 V-10 H-10Z" fill="#CBE8DA"/>
+        <g fill="none" stroke="#0FA37F" stroke-opacity=".45"><ellipse cx="120" cy="110" rx="80" ry="50"/><ellipse cx="120" cy="110" rx="52" ry="30"/><ellipse cx="120" cy="110" rx="24" ry="12"/></g>
+        <path d="M0 320 H400 M200 0 V400 M320 0 L270 400" stroke="#FFFFFF" stroke-opacity=".95" stroke-width="3" fill="none"/>
+      </svg>
+      <span class="pin"></span><span class="tag">Shortlet Haven</span>
+    </div>
+    <div>
+      <h2>Find us</h2>
+      <address>Golf Estate, 199 Sir Mike Omeje Ave, GRA, Enugu 400102</address>
+      <p>Enter Golf Estate from Sir Mike Omeje Avenue. Call the front desk if you need directions when you arrive.</p>
+      <a class="btn line" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Shortlet+Haven+199+Sir+Mike+Omeje+Ave+GRA+Enugu">Open in Google Maps</a>
+    </div>
+  </div>
+</section>
 
-            <div class="amenity-card">
-                <h3>Wellness & Leisure</h3>
-                <ul class="amenity-list">
-                    <li><span class="cross-icon">✕</span> No Hot Tub[span_26](start_span)[span_26](end_span)</li>
-                    <li><span class="cross-icon">✕</span> No Spa[span_27](start_span)[span_27](end_span)</li>
-                    <li><span class="check-icon">✓</span> Scenic Golf Views[span_28](start_span)[span_28](end_span)[span_29](start_span)[span_29](end_span)</li>
-                </ul>
-            </div>
-        </div>
-    </section>
+<section class="contact" id="contact">
+  <div class="wrap">
+    <h2>Your room is <em>waiting</em></h2>
+    <p>Send your dates on WhatsApp or call the front desk. We reply with availability and confirm your room.</p>
+    <div class="actions">
+      <a class="btn" target="_blank" rel="noopener" href="https://wa.me/2347031080961">Message on WhatsApp</a>
+      <a class="btn line" href="tel:+2347031080961">Call 0703 108 0961</a>
+    </div>
+  </div>
+</section>
+</main>
 
-    <!-- Rates & Live Stay Calculator -->
-    <section class="container" id="pricing">
-        <h2 class="section-title">Select Room & Calculate Stay</h2>
-        <p class="section-subtitle">Transparent rates with direct WhatsApp booking dispatch.</p>
+<footer><div class="wrap"><span>© <span id="yr"></span> Shortlet Haven, Enugu</span><span>Golf Estate, GRA</span></div></footer>
 
-        <div class="booking-layout">
-            <!-- Room Selection Side -->
-            <div class="rooms-container">
-                <div class="room-card selected" id="standard-room">
-                    <div class="room-header">
-                        <div>
-                            <div class="room-title">Standard Executive Suite</div>
-                            <p style="color: var(--text-muted); font-size: 0.9rem;">Includes Free Breakfast & Parking[span_30](start_span)[span_30](end_span)[span_31](start_span)[span_31](end_span)</p>
-                        </div>
-                        <div class="room-price">₦30,000 <span>/ night</span>[span_32](start_span)[span_32](end_span)[span_33](start_span)[span_33](end_span)[span_34](start_span)[span_34](end_span)</div>
-                    </div>
-                </div>
+<div class="mbar"><div><b>₦30,000</b> <small>a night</small></div><a class="btn" href="#contact">Book a stay</a></div>
 
-                <div class="room-card disabled-card">
-                    <div class="room-header">
-                        <div>
-                            <div class="room-title">Deluxe Luxury Apartment</div>
-                            <p style="color: var(--text-muted); font-size: 0.9rem;">Partner Third-Party Rate[span_35](start_span)[span_35](end_span)</p>
-                        </div>
-                        <div class="room-price">₦179,214 <span>/ night</span>[span_36](start_span)[span_36](end_span)</div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Dynamic Calculator & Reservation Form -->
-            <div class="calc-box">
-                <h3 class="calc-heading">Reservation Details</h3>
-                <form id="bookingForm" onsubmit="sendWhatsApp(event)">
-                    <div class="form-group">
-                        <label for="fullName">Full Name</label>
-                        <input type="text" id="fullName" class="form-control" placeholder="e.g. John Doe" required>
-                    </div>
-
-                    <div class="date-grid">
-                        <div class="form-group">
-                            <label for="checkIn">Check-in</label>
-                            <input type="date" id="checkIn" class="form-control" required onchange="calculateTotal()">
-                        </div>
-                        <div class="form-group">
-                            <label for="checkOut">Check-out</label>
-                            <input type="date" id="checkOut" class="form-control" required onchange="calculateTotal()">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="guests">Guests</label>
-                        <select id="guests" class="form-control">
-                            <option value="1">1 Guest</option>
-                            <option value="2" selected>2 Guests</option>[span_37](start_span)[span_37](end_span)
-                            <option value="3">3 Guests</option>
-                            <option value="4+">4+ Guests</option>
-                        </select>
-                    </div>
-
-                    <div class="price-breakdown">
-                        <div class="summary-row">
-                            <span>Nightly Rate</span>
-                            <span>₦30,000</span>[span_38](start_span)[span_38](end_span)[span_39](start_span)[span_39](end_span)[span_40](start_span)[span_40](end_span)
-                        </div>
-                        <div class="summary-row">
-                            <span>Duration</span>
-                            <span id="nightCount">1 Night</span>
-                        </div>
-                        <div class="summary-row total">
-                            <span>Total Payable</span>
-                            <span id="totalPrice" class="total-price-text">₦30,000</span>
-                        </div>
-                    </div>
-
-                    <button type="submit" class="btn-submit">
-                        Reserve via WhatsApp
-                    </button>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer id="contact">
-        <div class="container">
-            <p><strong>Shortlet Haven Enugu</strong>[span_41](start_span)[span_41](end_span)[span_42](start_span)[span_42](end_span)[span_43](start_span)[span_43](end_span)[span_44](start_span)[span_44](end_span)</p>
-            <p>Golf Estate, 199 Sir Mike Omeje Ave, GRA, Enugu 400102[span_45](start_span)[span_45](end_span) | Direct Desk: 0703 108 0961[span_46](start_span)[span_46](end_span)</p>
-            <p class="copyright-text">&copy; 2026 Shortlet Haven. All rights reserved.</p>
-        </div>
-    </footer>
-
-    <!-- External JavaScript File -->
-    <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
