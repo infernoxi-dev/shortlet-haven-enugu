@@ -1,122 +1,102 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const form = document.getElementById("bookingForm");
-  const suiteSelect = document.getElementById("suiteSelect");
-  const checkInInput = document.getElementById("checkIn");
-  const checkOutInput = document.getElementById("checkOut");
-  const displayNights = document.getElementById("displayNights");
-  const displayTotal = document.getElementById("displayTotal");
+// --- SHORTLET HAVEN ENUGU - MAIN JAVASCRIPT ---
 
-  // Set default dates: Check-in Today, Check-out Tomorrow
-  const today = new Date();
-  const tomorrow = new Date(today);
-  tomorrow.setDate(tomorrow.getDate() + 1);
+// Dynamic Pricing & Date Calculation Logic
+const apartmentSelect = document.getElementById('apartment');
+const guestsSelect = document.getElementById('guests');
+const checkInInput = document.getElementById('checkin');
+const checkOutInput = document.getElementById('checkout');
+const durationDisplay = document.getElementById('duration-display');
+const totalDisplay = document.getElementById('total-display');
+const bookingForm = document.getElementById('bookingForm');
 
-  if (checkInInput && checkOutInput) {
-    checkInInput.value = today.toISOString().split("T")[0];
-    checkOutInput.value = tomorrow.toISOString().split("T")[0];
-    checkInInput.min = today.toISOString().split("T")[0];
-  }
+// Base rates per night (in NGN)
+const prices = {
+  '1-bedroom': 40000,
+  '2-bedroom': 60000,
+  'penthouse': 120000
+};
 
-  // Calculate live stay nights and total price
-  function calculateStay() {
-    if (!checkInInput || !checkOutInput || !suiteSelect) return { nights: 1, total: 0 };
+function calculateTotal() {
+  if (!checkInInput || !checkOutInput) return;
 
-    const checkIn = new Date(checkInInput.value);
-    const checkOut = new Date(checkOutInput.value);
+  const checkInDate = new Date(checkInInput.value);
+  const checkOutDate = new Date(checkOutInput.value);
 
-    // Ensure checkout date is always strictly after checkin
-    if (checkOut <= checkIn) {
-      const adjustedOut = new Date(checkIn);
-      adjustedOut.setDate(adjustedOut.getDate() + 1);
-      checkOutInput.value = adjustedOut.toISOString().split("T")[0];
-    }
-
-    const diffTime = new Date(checkOutInput.value) - new Date(checkInInput.value);
-    let nights = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-
-    if (isNaN(nights) || nights < 1) nights = 1;
-
-    const selectedOption = suiteSelect.options[suiteSelect.selectedIndex];
-    const pricePerNight = parseInt(selectedOption.getAttribute("data-price"), 10) || 0;
-    const total = nights * pricePerNight;
-
-    if (displayNights) displayNights.textContent = `${nights} Night${nights > 1 ? 's' : ''}`;
-    if (displayTotal) displayTotal.textContent = `₦${total.toLocaleString()}`;
-
-    return { nights, total };
-  }
-
-  // Event Listeners for live price recalculation
-  if (suiteSelect) suiteSelect.addEventListener("change", calculateStay);
-  if (checkInInput) checkInInput.addEventListener("change", calculateStay);
-  if (checkOutInput) checkOutInput.addEventListener("change", calculateStay);
-
-  // Expose selectSuite function to window for room selection buttons
-  window.selectSuite = (suiteName) => {
-    if (!suiteSelect) return;
-
-    for (let i = 0; i < suiteSelect.options.length; i++) {
-      if (suiteSelect.options[i].value === suiteName) {
-        suiteSelect.selectedIndex = i;
-        break;
-      }
-    }
-    calculateStay();
+  if (checkInDate && checkOutDate && checkOutDate > checkInDate) {
+    const timeDiff = checkOutDate.getTime() - checkInDate.getTime();
+    const nights = Math.ceil(timeDiff / (1000 * 3600 * 24));
     
-    const reserveSection = document.getElementById("reserve");
-    if (reserveSection) {
-      reserveSection.scrollIntoView({ behavior: "smooth" });
-    }
-  };
+    const selectedApartment = apartmentSelect ? apartmentSelect.value : '2-bedroom';
+    const ratePerNight = prices[selectedApartment] || 60000;
+    const grandTotal = nights * ratePerNight;
 
-  // Run initial calculation on page load
-  calculateStay();
-
-  // Handle WhatsApp Booking Dispatch
-  if (form) {
-    form.addEventListener("submit", (e) => {
-      e.preventDefault();
-
-      const name = document.getElementById("guestName").value.trim();
-      const suite = suiteSelect.value;
-      const guests = document.getElementById("guestCount").value;
-      const checkIn = checkInInput.value;
-      const checkOut = checkOutInput.value;
-
-      const { nights, total } = calculateStay();
-      
-      // Update this phone number with your client's or your demo WhatsApp number
-      const hostPhone = "2348000000000"; 
-
-      const message = 
-        `*SHORTLET HAVEN ENUGU — DIRECT RESERVATION*%0A` +
-        `-----------------------------------------%0A` +
-        `*Guest Name:* ${encodeURIComponent(name)}%0A` +
-        `*Apartment Selected:* ${encodeURIComponent(suite)}%0A` +
-        `*Guests:* ${encodeURIComponent(guests)}%0A` +
-        `*Check-In Date:* ${encodeURIComponent(checkIn)}%0A` +
-        `*Check-Out Date:* ${encodeURIComponent(checkOut)}%0A` +
-        `*Duration:* ${nights} Night(s)%0A` +
-        `*Estimated Total:* ₦${total.toLocaleString()}%0A` +
-        `-----------------------------------------%0A` +
-        `_Sent directly via Shortlet Haven Web Concierge_`;
-
-      window.open(`https://wa.me/${hostPhone}?text=${message}`, "_blank");
-    });
+    if (durationDisplay) durationDisplay.textContent = `${nights} ${nights === 1 ? 'Night' : 'Nights'}`;
+    if (totalDisplay) totalDisplay.textContent = `₦${grandTotal.toLocaleString()}`;
+  } else {
+    if (durationDisplay) durationDisplay.textContent = '1 Night';
+    if (totalDisplay) totalDisplay.textContent = '₦60,000';
   }
-});
-// Mobile Navbar Toggle Logic
+}
+
+// Event listeners for reservation inputs
+if (apartmentSelect) apartmentSelect.addEventListener('change', calculateTotal);
+if (checkInInput) checkInInput.addEventListener('change', calculateTotal);
+if (checkOutInput) checkOutInput.addEventListener('change', calculateTotal);
+
+// WhatsApp Direct Booking Dispatcher
+if (bookingForm) {
+  bookingForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    
+    const apartmentText = apartmentSelect ? apartmentSelect.options[apartmentSelect.selectedIndex].text : '2-Bedroom Luxury Apartment';
+    const guests = guestsSelect ? guestsSelect.value : '2';
+    const checkIn = checkInInput ? checkInInput.value : 'Not set';
+    const checkOut = checkOutInput ? checkOutInput.value : 'Not set';
+    const totalCost = totalDisplay ? totalDisplay.textContent : '₦60,000';
+
+    const whatsappNumber = '2348000000000'; // Replace with your host phone number
+    const message = `Hello Shortlet Haven! I would like to make a reservation:\n\n` +
+                    `*Apartment:* ${apartmentText}\n` +
+                    `*Guests:* ${guests}\n` +
+                    `*Check-in:* ${checkIn}\n` +
+                    `*Check-out:* ${checkOut}\n` +
+                    `*Estimated Total:* ${totalCost}\n\n` +
+                    `Please confirm availability!`;
+
+    const encodedMessage = encodeURIComponent(message);
+    window.open(`https://wa.me/${whatsappNumber}?text=${encodedMessage}`, '_blank');
+  });
+}
+
+// Suite Selection Buttons Helper
+function selectSuite(apartmentType) {
+  if (apartmentSelect) {
+    apartmentSelect.value = apartmentType;
+    calculateTotal();
+  }
+  const reserveSection = document.getElementById('reserve');
+  if (reserveSection) {
+    reserveSection.scrollIntoView({ behavior: 'smooth' });
+  }
+}
+
+
+// --- MOBILE NAVBAR TOGGLE, CLOSE & BACKDROP LOGIC ---
 const navToggle = document.getElementById('navToggle');
 const navLinks = document.getElementById('navLinks');
+const menuBackdrop = document.getElementById('menuBackdrop');
 
 if (navToggle) {
   navToggle.addEventListener('click', () => {
+    navToggle.classList.toggle('active');
     navLinks.classList.toggle('active');
+    if (menuBackdrop) menuBackdrop.classList.toggle('active');
   });
 }
 
 function closeMenu() {
-  if (navLinks) {
-    navLinks.classList.remove('active');
-  }
+  if (navLinks) navLinks.classList.remove('active');
+  if (navToggle) navToggle.classList.remove('active');
+  if (menuBackdrop) menuBackdrop.classList.remove('active');
 }
+
